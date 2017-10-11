@@ -13,10 +13,10 @@ def bias_variable(shape):
     return tf.Variable(initial)
 
 def conv2d(x,W):
-    return tf.nn.conv2d(x,W,strides=[1,1,1,1],padding='SAME')  #padding='SAME'，进行padding使卷积前后图片尺寸不变（宽、高）
+    return tf.nn.conv2d(x,W,strides=[1,1,1,1],padding='SAME')  #conv2d,padding='SAME'，由于strides为1，进行padding后图片尺寸不变（宽、高）
 
 def max_pool_2X2(x):
-    return tf.nn.max_pool(x,ksize=[1,2,2,1],strides=[1,2,2,1],padding='SAME')
+    return tf.nn.max_pool(x,ksize=[1,2,2,1],strides=[1,2,2,1],padding='SAME') 
 
 learing_rate=1e-4
 epoch=20    #在训练集上运行20次
@@ -24,8 +24,8 @@ batch_size=100
 
 
 ##graph
-x=tf.placeholder(tf.float32, [None, 784]) #数据集预先处理好了,图片和标签都是float的
-x_image=tf.reshape(x, [-1, 28, 28, 1])
+x=tf.placeholder(tf.float32, [None, 784]) #数据集预先处理好了,图片和标签都是float的，第一维为None表示输入的图片数量不确定
+x_image=tf.reshape(x, [-1, 28, 28, 1])  #tf.reshape,第一维-1表示图片数量不确定
 
 #conv1,输出32个特征图，每个feature map大小保持为28X28,池化后输出为14X14
 W_conv1=weight_variable([5,5,1,32])     #卷积核大小，5X5X1,32个卷积核
