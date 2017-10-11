@@ -4,6 +4,7 @@ import tensorflow as tf
 
 mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
 
+#多层网络，需要反复定义W,b，反复使用卷积层、池化层，定义函数方便使用
 def weight_variable(shape):
     initial=tf.truncated_normal(shape,stddev=0.1)
     return tf.Variable(initial)
