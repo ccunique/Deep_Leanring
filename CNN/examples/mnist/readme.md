@@ -1,4 +1,4 @@
-# 对比tensorflow和keras搭建CNN
+# CNN: Keras,TensorFlow,Pytorch对比
 注：mnist_cnn_tensorflow & mnist_cnn_keras
 ## 1.tensorflow和keras相同点
 - 二者都是"符号式"的库，都是**先搭建计算图，定义好网络结构，然后再把具体数据feed到模型里面运算**
